@@ -6,35 +6,28 @@
 </head>
 <body>
     <h1>Datos de la Base de Datos</h1>
-    <table class="table table-dark">
-        <tr>
-            <th>ID</th>
-            <th>Nombre</th>
-            <th>Apellido</th>
-            <th>Numero</th>
-            <th>Ocupación</th>
-           
-            <!-- Agrega más columnas según tu base de datos -->
-        </tr>
-        <tbody
-        {% for dato in datos %}
-        <tr>
-            <td>{{ dato[0] }}</td>
-            <td>{{ dato[1] }}</td>
-            <td>{{ dato[2] }}</td>
-            <td>{{ dato[3] }}</td>
-            <td>{{ dato[4] }}</td>
-            <td>{{ dato[5] }}</td>
-            <td>{{ dato[6] }}</td>
-            <td>{{ dato[7] }}</td>
-            <td>{{ dato[8] }}</td>
-            <td>{{ dato[9] }}</td>
-            <td>{{ dato[10] }}</td>
-            <!-- Agrega más celdas según tu base de datos -->
-        </tr>
-        </tbody>
-        {% endfor %}
-        </table>
+    <div class="row">
+  {% for dato in datos %}
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ dato[1] }} {{ dato[2] }}</h5>
+          <p class="card-text">
+            <strong>ID:</strong> {{ dato[0] }}<br>
+            <strong>Nombre:</strong> {{ dato[1] }}<br>
+            <strong>Apellido:</strong> {{ dato[2] }}<br>
+            <strong>Numero:</strong> {{ dato[3] }}<br>
+            <strong>Ocupación:</strong> {{ dato[4] }}<br>
+          </p>
+          <a href="#" class="btn btn-primary">Ver detalles</a>
+        </div>
+      </div>
+    </div>
+    {% if loop.index % 4 == 0 %}
+      </div><div class="row">
+    {% endif %}
+  {% endfor %}
+</div>
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
